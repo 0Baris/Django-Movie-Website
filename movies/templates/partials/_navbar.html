@@ -13,5 +13,9 @@
             <a class="nav-link" href="{% url "movies" %}">Filmler</a>
           </li>
       </div>
+      <form class="d-flex" action="{% url 'index' %}">
+        <input class="form-control me-2" type="search" placeholder="Film adı ile ara" aria-label="Ara" name="search">
+        <button class="btn btn-outline-success" type="submit">Ara</button>
+    </form>
     </div>
   </nav>

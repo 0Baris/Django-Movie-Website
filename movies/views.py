@@ -1,46 +1,19 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Category, Movie
 
-## Test veritabanı
-# kategoriler = ["Action", "Comedy", "Drama", "Horror", "Sci-Fi", "Horror"]
-# filmler = [
-#     {
-#         "id": 1,
-#         "film_adi": "Encanto",
-#         "aciklama": "Disney",
-#         "resim": "encanto.jpeg",
-#         "anasayfa": True
-#     },
-#     {
-#         "id": 2,
-#         "film_adi": "Moana 2",
-#         "aciklama": "Disney",
-#         "resim": "moana2.jpeg",
-#         "anasayfa": True
-
-#     },
-#     {
-#         "id": 3,
-#         "film_adi": "Thunderbolts",
-#         "aciklama": "MARVEL",
-#         "resim": "thunderbolts.jpg",
-#         "anasayfa": False
-#     },
-#     {
-#         "id": 4,
-#         "film_adi": "US",
-#         "aciklama": "Netflix",
-#         "resim": "us.jpg",
-#         "anasayfa": True
-#     }
-#     ]
-# # Create your views here.
 
 def home(request):
     
+    search_query = request.GET.get('search', '')
+
+    if search_query:
+        filmler = Movie.objects.filter(film_adi__icontains=search_query,anasayfa=True)
+    else:
+        filmler = Movie.objects.filter(anasayfa=True)
+    
     context = {
         "kategoriler": Category.objects.all,
-        "filmler": Movie.objects.filter(anasayfa=True),
+        "filmler": filmler,
         "page": "home"
     }
 
@@ -83,4 +56,3 @@ def category(request, id):
         "page": page
     }
     return render(request, 'category.html', context)
-
