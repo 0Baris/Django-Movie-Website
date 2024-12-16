@@ -1,0 +1,26 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block title %}Filmler{% endblock%}
+
+{% block content %}
+
+    {% include 'partials/_navbar.html' %}
+    
+    <div class="container mt-3">
+        <div class="row">
+            {% include 'partials/_category.html' with page="movies" %}
+            <div class="col-9">
+                <div class="row">
+                    {% for film in filmler %}
+                        <div class="col-4 mt-3">
+                            {% include 'partials/_movie.html' %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}
+

@@ -1,0 +1,9 @@
+<div class="col-3">
+    <div class="list-group">
+        {% for kategori in kategoriler %}
+            <a href="{% url 'category' kategori.id %}?page={{ page }}" class="list-group-item list-group-item-action" aria-current="true">
+                {{ kategori.name }}
+            </a>
+        {% endfor %}
+    </div>
+</div>

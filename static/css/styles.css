@@ -1,0 +1,21 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex-grow: 1;
+}
+
+.movie-poster {
+    width: 100%;
+    height: auto;
+    max-height: 388.47px;
+}
+
+.movie-poster-detail {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+}

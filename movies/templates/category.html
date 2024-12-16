@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    {% include 'partials/_navbar.html' %}
+    
+    <div class="container mt-3">
+        <div class="row">
+            {% include 'partials/_category.html' %}
+            <div class="col-9">
+                <div class="row">
+                    {% for film in filmler %}
+                        {% if film.anasayfa and page == "home" %}
+                            <div class="col-4 mt-3">
+                                {% include 'partials/_movie.html' %}
+                            </div>
+                        {% elif page == "movies" %}
+                            <div class="col-4 mt-3">
+                                {% include 'partials/_movie.html' %}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,11 @@
+{% load static %}
+
+<div class="card h-100">
+    <img src="{{ film.resim.url }}" class="card-img-top movie-poster" alt="{{ film.film_adi }}">
+    <div class="card-body d-flex flex-column">
+        <h5 class="card-title">{{ film.film_adi }}</h5>
+        <p class="card-text flex-grow-1">{{ film.aciklama }}</p>
+        <a href="{% url 'movie_details' film.id %}" class="btn btn-danger mt-auto">Details</a>
+    </div>
+</div>
+
