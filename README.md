@@ -6,7 +6,7 @@ MovieApp, Django framework kullanılarak geliştirilmiş bir film sitesidir. Bu 
 
 1. Bu projeyi klonlayın:
    ```bash
-   git clone https://github.com/0baris/movieapp.git
+   git clone https://github.com/0Baris/Django-Movie-Website.git
    cd movieapp
    ```
 
